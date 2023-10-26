@@ -24,20 +24,24 @@ neopixelStrip.show()
 // find distance and light up LED's depending on distance
 input.onButtonPressed(Button.A, function () {
   basic.clearScreen()
-
+  
+  // detects distance
   distance = sonar.ping(DigitalPin.P1, DigitalPin.P2, PingUnit.Centimeters)
   basic.showNumber(distance)
   basic.showIcon(IconNames.StickFigure)
 
+  // if distance < 10, neopixels turn red
   if (distance < 10) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
     neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
     neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
     neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.show()
   } else {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
     neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
     neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
     neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.show()
   }
 })
