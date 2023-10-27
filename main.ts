@@ -24,7 +24,7 @@ neopixelStrip.show()
 // find distance and light up LED's depending on distance
 input.onButtonPressed(Button.A, function () {
   basic.clearScreen()
-  
+
   // detects distance
   distance = sonar.ping(DigitalPin.P1, DigitalPin.P2, PingUnit.Centimeters)
   basic.showNumber(distance)
